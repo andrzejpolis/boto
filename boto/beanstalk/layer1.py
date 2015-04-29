@@ -348,7 +348,7 @@ class Layer1(AWSQueryConnection):
                                    'OptionSettings.member',
                                    ('Namespace', 'OptionName', 'Value'))
         if options_to_remove:
-            self.build_list_params(params, options_to_remove,
+            self._build_list_params(params, options_to_remove,
                                    'OptionsToRemove.member',
                                    ('Namespace', 'OptionName'))
         if tier_name and tier_type and tier_version:
@@ -1137,7 +1137,7 @@ class Layer1(AWSQueryConnection):
                                    'OptionSettings.member',
                                    ('Namespace', 'OptionName', 'Value'))
         if options_to_remove:
-            self.build_list_params(params, options_to_remove,
+            self._build_list_params(params, options_to_remove,
                                    'OptionsToRemove.member',
                                    ('Namespace', 'OptionName'))
         if tier_name and tier_type and tier_version:
