@@ -349,7 +349,8 @@ class Layer1(AWSQueryConnection):
                                    ('Namespace', 'OptionName', 'Value'))
         if options_to_remove:
             self.build_list_params(params, options_to_remove,
-                                   'OptionsToRemove.member')
+                                   'OptionsToRemove.member',
+                                   ('Namespace', 'OptionName'))
         if tier_name and tier_type and tier_version:
             params['Tier.Name'] = tier_name
             params['Tier.Type'] = tier_type
@@ -1038,8 +1039,9 @@ class Layer1(AWSQueryConnection):
                                    'OptionSettings.member',
                                    ('Namespace', 'OptionName', 'Value'))
         if options_to_remove:
-            self.build_list_params(params, options_to_remove,
-                                   'OptionsToRemove.member')
+            self._build_list_params(params, options_to_remove,
+                                    'OptionsToRemove.member',
+                                    ('Namespace', 'OptionName'))
         return self._get_response('UpdateConfigurationTemplate', params)
 
     def update_environment(self, environment_id=None, environment_name=None,
@@ -1136,7 +1138,8 @@ class Layer1(AWSQueryConnection):
                                    ('Namespace', 'OptionName', 'Value'))
         if options_to_remove:
             self.build_list_params(params, options_to_remove,
-                                   'OptionsToRemove.member')
+                                   'OptionsToRemove.member',
+                                   ('Namespace', 'OptionName'))
         if tier_name and tier_type and tier_version:
             params['Tier.Name'] = tier_name
             params['Tier.Type'] = tier_type
